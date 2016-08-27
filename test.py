@@ -14,7 +14,7 @@ classDistribution = [item for sublist in classDistribution for item in sublist]
 print '============================='
 print 'SAMPLED CLASS DISTRIBUTION'
 print '============================='
-stats = ImbalanceDegree(ocurrences)
+stats = ImbalanceDegree(classDistribution)
 print 'Number of classes: ' + str(stats.numClasses)
 print 'Number of minority classes: ' + str(stats.numMinorityClasses)
 print 'Class Distribution: ' + str([ '%.2f' % elem for elem in stats.classDistribution])
@@ -25,10 +25,10 @@ print '============================='
 print 'MEASURES'
 print '============================='
 #IMBALANCE RATIO
-IR = ImbalanceRatio(ocurrences)
+IR = ImbalanceRatio(classDistribution)
 print 'IMBALANCE_RATIO: ' + str("{0:.2f}".format(IR.value))
 print '-'
 #IMBALANCE DEGREE
 for complementMeasure in complementMeasures:
-	ID = ImbalanceDegree(ocurrences,complementMeasure)
+	ID = ImbalanceDegree(classDistribution,complementMeasure)
 	print 'IMBALANCE_DEGREE_'+str(complementMeasure) + ': ' + str("{0:.2f}".format(ID.value))
